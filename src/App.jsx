@@ -8,6 +8,7 @@ const App = () => {
   const [correct, setCorrect] = useState(false);
   useEffect(() => {
     whoIsThatPokemon();
+
   }, []);
 
   const pokeId = () => Math.floor(Math.random() * 152);
@@ -17,8 +18,6 @@ const App = () => {
       setguessPokemon(res.data);
     });
   };
-
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,10 +51,8 @@ const App = () => {
                 ? { filter: "brightness(0%)" }
                 : { filter: "brightness(100%)" }
             }
-            src={
-              "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
-              guessPokemon.id +
-              ".png"
+            src={!guessPokemon.id ?  <span></span> :
+              `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${guessPokemon.id}.png`
             }
             className="sprite"
           />
