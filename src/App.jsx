@@ -18,7 +18,7 @@ const App = () => {
       setguessPokemon(res.data);
     });
   };
-
+  console.log(guessPokemon.name);
   const handleSubmit = (e) => {
     e.preventDefault();
     setPokedex();
@@ -26,7 +26,8 @@ const App = () => {
       setCorrect(true);
       alert("YOU WIN");
     } else {
-      alert("YOU LOSE");
+
+      alert(`YOU LOSE, EL POKEMON ERA: ${guessPokemon.name.toUpperCase()}`);
     };
     setTimeout(() => {
       alert('Oh... aparecio otro pokemon')
@@ -35,7 +36,7 @@ const App = () => {
     }, 2000);
     
   };
-  console.log(guessPokemon.name);
+  
   return (
     <div className="app-wrapper">
       <header>
